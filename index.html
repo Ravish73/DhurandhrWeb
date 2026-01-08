@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dhurandhar | Cyber Spy Patriot</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at center, #0b0b0b, #000000);
+    font-family: "Courier New", monospace;
+    color: #00ff9c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ---------- SCANLINE ---------- */
+.scanline {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 255, 0, 0.25);
+    animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+}
+
+/* ---------- TITLE ---------- */
+.title {
+    font-size: 4rem;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+}
+
+/* ---------- GLITCH ---------- */
+.glitch {
+    position: relative;
+    color: #00ff9c;
+    text-shadow:
+        2px 2px red,
+        -2px -2px cyan;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px red; }
+    50% { text-shadow: -2px -2px cyan; }
+    100% { text-shadow: 2px 2px red; }
+}
+
+/* ---------- TYPEWRITER ---------- */
+#typewriter {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 20px auto 30px;
+    min-height: 180px;
+    white-space: pre-line;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+    background: transparent;
+    border: 2px solid #00ff9c;
+    color: #00ff9c;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00ff9c;
+    color: #000;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.8rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scanline"></div>
+
+<div class="container">
+    <h1 class="title glitch">DHURANDHAR</h1>
+
+    <p id="typewriter"></p>
+
+    <button onclick="playMusic()">▶ PLAY MISSION ANTHEM</button>
+
+    <div class="footer">
+        🇮🇳 Cyber Spy | Patriot Mode ON
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="song" src="dhurandhar.mp3"></audio>
+</div>
+
+<script>
+/* ---------- TYPEWRITER TEXT ---------- */
+const text = `
+Dhurandhar sirf taqat ka naam nahi hota...
+Woh dimaag se jeeta hai.
+
+🕵️ Cyber duniya ka khiladi
+🔥 Andaz alag, iraade pakke
+🇮🇳 Desh ke liye, khud ke liye
+
+"Najo andaaz se jeena hoga,
+warna system hila diya jayega."
+
+— DHURANDHAR MODE ACTIVATED —
+`;
+
+let index = 0;
+const speed = 40;
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, speed);
+    }
+}
+typeEffect();
+
+/* ---------- MUSIC ---------- */
+function playMusic() {
+    const song = document.getElementById("song");
+    song.play();
+}
+</script>
+
+</body>
+</html>
